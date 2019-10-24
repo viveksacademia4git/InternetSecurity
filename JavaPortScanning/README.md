@@ -1,7 +1,7 @@
 
 # JAVA Port Scanning
 
-Java Application to scan the standard ports and the other port of the url
+Java Application to scan the standard ports and the other ports of the url
 
 
 ## Execute Port Scanning
