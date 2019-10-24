@@ -6,7 +6,7 @@ Java Application to scan the standard ports and the other port of the url
 
 ## Execute Port Scanning
 
-Run the Unit Test class [PortScanUtilTest.java](https://github.com/viveksacademia4git/InternetSecurity/blob/master/JavaPortScanning/src/test/java/edu/srh/is/util/PortScanUtilTest.java)
+Run the Unit Test class [PortScanUtilTest.java](https://github.com/viveksacademia4git/InternetSecurity/blob/master/JavaPortScanning/src/test/java/edu/srh/is/util/PortScanUtilTest.java). Created multiple thread in [PortScanUtil.java](https://github.com/viveksacademia4git/InternetSecurity/blob/master/JavaPortScanning/src/main/java/edu/srh/is/util/PortScanUtil.java) for scanning 50 ports in parallel for intensive within function PortScanUtil.java#scanAllPorts(String url).
 
 
 
