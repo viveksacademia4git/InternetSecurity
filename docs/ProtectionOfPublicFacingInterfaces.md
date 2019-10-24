@@ -13,8 +13,6 @@
 - From the development perspective, hide the implementation and provide the explicit implementation of the interface. Abstraction in Java can be viewed as an example of the stated scenario[2][3].
 
 
---------------------------------------------
-
 
 ## Protection
 - We are clear till now, what are public-facing interfaces and how important they are! Therefore, it is very essential to protect them from public view. Having an interface in the open view makes them a clear target and susceptible to malicious attacks.
@@ -25,7 +23,6 @@
     - It may be possible that the Public Facing Interfaces can be exploited indirectly through the authorized application or application unit which in result might release the information that can be malicious for attackers, therefore, it is essential to have the unit tests and component vulnerability test.
 
 
---------------------------------------------
 
 ## References
 
