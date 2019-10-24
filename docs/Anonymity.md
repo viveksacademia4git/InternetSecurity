@@ -3,21 +3,15 @@
 Anonymity is being anonymous on the internet concealing the identity of a person or a system to promote privacy. Anonymity is essential for a being to avoid becoming a target of activity such as marketing (which create biasness by changing the outlook or perception that might further result into a successful campaign that can be, misleading or propaganda) and persevere freedom. There are various ways to exploit and preserve anonymity. Anonymous communication over the internet can be achieved through TOR or VPN.
 
 
---------------------------------------------
-
 
 ## TOR
 Tor is free and open-source software that establishes anonymous communication over the internet. TOR hides users' location and usage through 'The Onion Router' making it difficult to perform traffic analysis or network surveillance[1]. In order for TOR to work, volunteers are required to be part of the overlay network. This kind of setup makes it difficult to keep a track of internet footprints achieving confidentiality and freedom from being monitored.
 
 
---------------------------------------------
-
 
 ## VPN
 Virtual Private Network or VPN provides a private network across a public network making it possible to communicate on the public network in an encapsulated manner. To enable VPN on a device it is required to have authenticated access of the private network through VPN service providers[2]. Since the connection is encrypted through the VPN, therefore, no one can intercept, monitor, or alter the communication except the point of origin and the endpoint of the VPN tunnel. Companies provide a VPN tunnel for its employees for the purpose of security and accessibility of the organization's internal network.
 
-
---------------------------------------------
 
 
 ## Difference Between TOR and VPN Tools
