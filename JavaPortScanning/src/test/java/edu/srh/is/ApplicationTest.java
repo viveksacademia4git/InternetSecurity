@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test;
 
 class ApplicationTest {
 
-
-	@Test 
+	@Test
 	void testMain_Null() {
 		Throwable exception = assertThrows(NullPointerException.class, () -> {
 			Application.main(null);
