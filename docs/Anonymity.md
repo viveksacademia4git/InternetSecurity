@@ -16,7 +16,7 @@ Virtual Private Network or VPN provides a private network across a public networ
 
 ## Difference Between TOR and VPN Tools
 
-|              | TOR           | VPN   |
+|               | TOR           | VPN   |
 |:-------------:|:-------------:| -----:|
 | Concept | Onion Network | Virtual Private Network |
 | Implementation | TOR browser and TOR network  | VPN Services like **IPredator** |
@@ -24,9 +24,7 @@ Virtual Private Network or VPN provides a private network across a public networ
 | Networking      | Bounces the connection across multiple proxy & relay connections between the starting point and the end point[1].      |   VPN Tunnel provides a connection through the secure protocol to the VPN service’s gateway |
 | Snooping | Prevented      | Prevented |
 | Performance | Slow (Due to layers of encryption and decryption)      | Fast (Due to abstraction through the private network) |
-| Exploits | Javascript and Plugins, Exit Node in TOR, Cookies (read below)   | WAP, Bait, Cookie Theft |
-
-**Cookies Example >>> One of the main entity responsible for running 'silk road (marketplace)' was traced through a cookie, after many of hiding and precautions**
+| Exploits | Javascript and Plugins, Exit Node in TOR, Cookies (read below live example)   | WAP, Bait, Cookie Theft |
 
 
 ## Exploits
@@ -46,6 +44,8 @@ There are lot of ads on the webpages over the internet. A malicious website can 
 
 #### Cookie Theft (TOR and VPN)
 The cookies are stored by the browser through websites for identification and performance. Stealing cookie information can reveal a lot information that can be used later to compromise the security.
+
+**Cookies Example >>> One of the main entity responsible for running 'silk road (marketplace)' was traced through a cookie, after many of hiding and precautions**
 
 
 
