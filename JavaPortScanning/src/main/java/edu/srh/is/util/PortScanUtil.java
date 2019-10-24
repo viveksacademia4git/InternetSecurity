@@ -57,7 +57,7 @@ public final class PortScanUtil {
 
 	private static JSONObject connectPort(String url, int portNumber, String portName) {
 		String portMessage = append("Port [", portNumber, "] for [", portName, "] is open");
-		return connectPort(url, portNumber, portMessage);
+		return connect(url, portNumber, portMessage);
 	}
 
 
