@@ -3,7 +3,6 @@
 
 It is very essential to protect public-facing interfaces from outside(untrusted and public). Network in an open view makes them a clear target and susceptible to malicious attacks. Public facing interface is interface toward the public internet connecting to the ISP.
 
-- The Public-Facing Interfaces provide encapsulation from being open:
 - A firewall implementation contains the Public Facing Interface that separates the trusted traffic and untrusted traffic. Proper firewall implementation creates two basic security zones, known as inside and outside.
 - Set incoming NAT rules for the IP addresses if there is no Public Facing Interface. Create NAT rules to forward the traffic into your network.
 - Allow only application or application units within the network to have direct contact with these interfaces.
