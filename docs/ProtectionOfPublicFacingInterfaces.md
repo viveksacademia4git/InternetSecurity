@@ -1,7 +1,7 @@
 
 # Protection of Public-Facing Interfaces
 
-- It is very essential to protect public-facing interfaces to protect from outside(untrusted and public). Having an interface in the open view makes them a clear target and susceptible to malicious attacks.
+- It is very essential to protect public-facing interfaces from outside(untrusted and public). Having an interface in the open view makes them a clear target and susceptible to malicious attacks.
 - The ways through which they can be encapsulated from being in open are:
     - Set incoming NAT rules for the IP addresses. Create NAT rules to forward the traffic into your network.
     - A firewall implementation separates the trusted traffic and untrusted traffic. Proper firewall implementation creates two basic security zones, known as inside and outside.
