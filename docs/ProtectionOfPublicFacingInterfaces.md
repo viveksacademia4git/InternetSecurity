@@ -1,21 +1,7 @@
 
 # Protection of Public-Facing Interfaces
 
-## Public-Facing Interfaces
-
-- The software can be of different types, it could be a single unit working independently or it could be a combination of different units. When the multiple units involved in the entire software or an application, these units are assigned with an individual task and in order to provide a service these units require a point to interact with each. This point is called the public interface[1].
-- The multiple units working together must individually be stable, robust, updated and adaptable for changes in the future.
-- There are various guidelines while developing public interfaces such:
-    - Through planning with a proper procedure and architecture design.
-    - Adhere standards for: coding, good documentation with the plan for software release and deprecating obsolete interfaces (or sections), insulation of classes and compile-time dependencies 
-- In order to have a good interface best practise must be always exercised throughout the development phase and the support phase.
-- For information related to example using c++ interface go to following link [https://en.wikipedia.org/wiki/Public_interface#Examples](https://en.wikipedia.org/wiki/Public_interface#Examples)[1].
-- From the development perspective, hide the implementation and provide the explicit implementation of the interface. Abstraction in Java can be viewed as an example of the stated scenario[2][3].
-
-
-
-## Protection
-- We are clear till now, what are public-facing interfaces and how important they are! Therefore, it is very essential to protect them from public view. Having an interface in the open view makes them a clear target and susceptible to malicious attacks.
+- It is very essential to protect them from public view. Having an interface in the open view makes them a clear target and susceptible to malicious attacks.
 - The ways through which they can be encapsulated from being in open are:
     - Hide them behind the company or organization network.
     - Allow only application or application units to have contact with these interfaces.
