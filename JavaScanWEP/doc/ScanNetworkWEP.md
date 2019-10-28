@@ -6,7 +6,7 @@ Command:
 `sudo apt-get install -y aircrack-ng`
 
 Output Screenshot:  
-![Screenshot](Install_airmon-ng.png)
+![Screenshot](images/Install_airmon-ng.png)
 
 Output Text:  
 ```
@@ -51,7 +51,7 @@ Command:
 `sudo airmon-ng start wlan0`
 
 Output Screenshot:  
-![Screenshot](trouble_causing_process.png)
+![Screenshot](images/trouble_causing_process.png)
 
 Output Text:  
 ```
@@ -78,7 +78,7 @@ Command:
 `sudo apt install net-tools`
 
 Output Screenshot:  
-![Screenshot](InstallNetTools.png)
+![Screenshot](images/InstallNetTools.png)
 
 
 Output Text:  
@@ -111,10 +111,10 @@ Command:
 `sudo apt-get install macchanger`
 
 Output Screenshot:  
-![Screenshot](InstallMacchanger.png)
+![Screenshot](images/InstallMacchanger.png)
 
 MacAddress Changer Screenshot: Window Screenshot for Automatic Mac Address Assignment: (Preffered to Select 'No')  
-![Screenshot](MacChanger.png)
+![Screenshot](images/MacChanger.png)
 
 
 Output Text:  
