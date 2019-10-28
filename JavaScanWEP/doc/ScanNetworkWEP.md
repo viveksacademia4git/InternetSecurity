@@ -1,6 +1,6 @@
 # Scan WEP Networks
 
-### Install ***airmon-ng***
+## Install ***airmon-ng***
 
 Command:  
 `sudo apt-get install -y aircrack-ng`
@@ -45,7 +45,7 @@ Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
 ```
 
 
-### Check trouble causing process 
+## Check trouble causing process 
 
 Command:  
 `sudo airmon-ng start wlp2s0`
@@ -90,7 +90,7 @@ phy0	wlp2s0		iwlwifi		Intel Corporation Wireless 7260 (rev 73)
 ```
 
 
-### Install ***net-tools*** for ***ifconfig***
+## Install ***net-tools*** for ***ifconfig***
 
 Command:  
 `sudo apt install net-tools`
@@ -123,7 +123,7 @@ Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
 ```
 
 
-### Stop the Interface
+## Stop the Interface
 
 Stop the interface for `[phy0]wlp2s0 on [phy0]wlp2s0mon`
 
@@ -131,7 +131,7 @@ Command:
 `sudo ifconfig wlp2s0mon down`
 
 
-### Install ***Mac Changer***
+## Install ***Mac Changer***
 
 Command:  
 `sudo apt-get install macchanger`
@@ -170,7 +170,7 @@ Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
 ```
 
 
-### Use Mac Changer for changing Mac-Address
+## Use Mac Changer for changing Mac-Address
 
 Command:  
 `sudo macchanger wlp2s0mon 00:11:22:33:44:55`
@@ -196,7 +196,7 @@ Command:
 
 
 
-### Start Monitoring through 'airodump-ng'
+## Start Monitoring through 'airodump-ng'
 
 Command:  
 `sudo airodump-ng wlp2s0mon`
@@ -244,4 +244,25 @@ Output Text:
  A0:E0:AF:B2:E8:12  -77       14        0    0  11  54e. WPA2 CCMP   MGT  eduroam 
 ```
 
+## Monitoring Table Header Explanation:
 
+### BSSID:
+"Packets bound for devices within the WLAN need to go to the correct destination. The SSID keeps the packets within the correct WLAN, even when overlapping WLANs are present. However, there are usually multiple access points within each WLAN, and there has to be a way to identify those access points and their associated clients. This identifier is called a basic service set identifier (BSSID) and is included in all wireless packets."[Link:juniper.net](https://www.juniper.net/documentation/en_US/junos-space-apps/network-director3.5/topics/concept/wireless-ssid-bssid-essid.html)  
+
+### ENC
+Type of encryption used for the network.
+
+### CIPHER
+Type of CIPHER used for the network.
+
+
+
+## WEP 'to_break_educational'
+
+The WEP with the assigned name `to_break_educational` has BSSID `E8:94:F6:F2:F1:E1` which signifies that the security being used by the network is `WEP 40/128-bit Key(Hex or ASCII`.
+
+
+
+## References
+
+- https://www.juniper.net/documentation/en_US/junos-space-apps/network-director3.5/topics/concept/wireless-ssid-bssid-essid.html
