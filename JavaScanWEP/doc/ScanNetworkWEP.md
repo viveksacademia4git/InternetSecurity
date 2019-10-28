@@ -48,13 +48,31 @@ Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
 ### Check trouble causing process 
 
 Command:  
-`sudo airmon-ng start wlan0`
+`sudo airmon-ng start wlp2s0`
 
 Output Screenshot:  
 ![Screenshot](images/trouble_causing_process.png)
 
 Output Text:  
 ```
+Found 5 processes that could cause trouble.
+If airodump-ng, aireplay-ng or airtun-ng stops working after
+a short period of time, you may want to run 'airmon-ng check kill'
+
+  PID Name
+  705 avahi-daemon
+  720 avahi-daemon
+  725 NetworkManager
+  756 wpa_supplicant
+ 4327 dhclient
+
+PHY	Interface	Driver		Chipset
+
+phy0	wlp2s0		iwlwifi		Intel Corporation Wireless 7260 (rev 73)
+
+		(mac80211 monitor mode vif enabled for [phy0]wlp2s0 on [phy0]wlp2s0mon)
+		(mac80211 station mode vif disabled for [phy0]wlp2s0)
+
 Found 5 processes that could cause trouble.
 If airodump-ng, aireplay-ng or airtun-ng stops working after
 a short period of time, you may want to run 'airmon-ng check kill'
@@ -72,7 +90,7 @@ phy0	wlp2s0		iwlwifi		Intel Corporation Wireless 7260 (rev 73)
 ```
 
 
-### Install ***net-tools***
+### Install ***net-tools*** for ***ifconfig***
 
 Command:  
 `sudo apt install net-tools`
@@ -103,6 +121,14 @@ Unpacking net-tools (1.60+git20161116.90da8a0-1ubuntu1) ...
 Setting up net-tools (1.60+git20161116.90da8a0-1ubuntu1) ...
 Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
 ```
+
+
+### Stop the Interface
+
+Stop the interface for `[phy0]wlp2s0 on [phy0]wlp2s0mon`
+
+Command:  
+`sudo ifconfig wlp2s0mon down`
 
 
 ### Install ***Mac Changer***
@@ -143,5 +169,79 @@ Processing triggers for install-info (6.5.0.dfsg.1-2) ...
 Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
 ```
 
+
+### Use Mac Changer for changing Mac-Address
+
+Command:  
+`sudo macchanger wlp2s0mon 00:11:22:33:44:55`
+
+Output Screenshot:  
+![Screenshot](images/MacChange_Command.png)
+
+
+Output Text:  
+```
+Current MAC:   ac:7b:a1:84:eb:d5 (Intel Corporate)
+Permanent MAC: ac:7b:a1:84:eb:d5 (Intel Corporate)
+```
+
+
+
+### Start the Interface
+
+Stop the interface for `[phy0]wlp2s0 on [phy0]wlp2s0mon`
+
+Command:  
+`sudo ifconfig wlp2s0mon down`
+
+
+
+### Start Monitoring through 'airodump-ng'
+
+Command:  
+`sudo airodump-ng wlp2s0mon`
+
+Output Screenshot:  
+![Screenshot](images/Moniter_airodump-ng.png)
+
+
+Output Text:  
+``` CH  8 ][ Elapsed: 30 s ][ 2019-10-28 19:26                                         
+                                                                                                                                               
+ BSSID              PWR  Beacons    #Data, #/s  CH  MB   ENC  CIPHER AUTH ESSID
+                                                                                                                                               
+ A0:E0:AF:A0:E9:AE   -1        0        0    0  11  -1                    <length:  0>                                                         
+ 60:E3:27:4D:A2:88  -45       36        0    0   7  54e. WPA2 CCMP   PSK  Wifi_Register                                                        
+ A0:E0:AF:D5:7B:42  -48       15        0    0  11  54e. WPA2 CCMP   MGT  eduroam                                                              
+ A0:E0:AF:D5:7B:41  -48       11      143    0  11  54e. WPA2 CCMP   MGT  wlanfh1x                                                             
+ A0:E0:AF:D5:7B:43  -49       15        0    0  11  54e. WPA2 CCMP   PSK  HSHD-SAP                                                              
+ A0:E0:AF:D5:7B:40  -49       18        0    0  11  54e. WPA2 CCMP   MGT  SRH                                                                   
+ E8:94:F6:F2:F1:E1  -60       52        2    0   6  54e. WEP  WEP         to_break_educational                                                  
+ A0:E0:AF:E8:BB:93  -66       16        0    0   1  54e. WPA2 CCMP   PSK  HSHD-SAP                                                              
+ A0:E0:AF:E8:BB:92  -67       17        0    0   1  54e. WPA2 CCMP   MGT  eduroam                                                               
+ A0:E0:AF:E8:BB:90  -67       19        0    0   1  54e. WPA2 CCMP   MGT  SRH                                                                   
+ A0:E0:AF:E8:BB:91  -67       18     3011    0   1  54e. WPA2 CCMP   MGT  wlanfh1x                                                             
+ A0:E0:AF:D6:58:D0  -73       15        0    0   6  54e. WPA2 CCMP   MGT  SRH                                                                   
+ A0:E0:AF:D6:58:D3  -73       15        0    0   6  54e. WPA2 CCMP   PSK  HSHD-SAP                                                              
+ A0:E0:AF:D6:58:D1  -74       15        0    0   6  54e. WPA2 CCMP   MGT  wlanfh1x                                                              
+ A0:E0:AF:B4:1C:A3  -74       10        0    0   1  54e. WPA2 CCMP   PSK  HSHD-SAP                                                             
+ A0:E0:AF:D6:58:D2  -75       13        0    0   6  54e. WPA2 CCMP   MGT  eduroam                                                               
+ AC:84:C6:58:46:F8  -75        2        0    0   9  54e. WPA2 CCMP   PSK  <length:  0>                                                          
+ A0:E0:AF:B4:1C:A0  -75        9        0    0   1  54e. WPA2 CCMP   MGT  SRH                                                                   
+ A0:E0:AF:B4:1C:A2  -75        4        0    0   1  54e. WPA2 CCMP   MGT  eduroam                                                               
+ A0:E0:AF:B4:1C:A1  -75       10        0    0   1  54e. WPA2 CCMP   MGT  wlanfh1x                                                              
+ A0:E0:AF:A0:E9:A3  -75       12        0    0   1  54e. WPA2 CCMP   PSK  HSHD-SAP                                                              
+ A0:E0:AF:A0:E9:A0  -75        9        0    0   1  54e. WPA2 CCMP   MGT  SRH                                                                   
+ A0:E0:AF:A0:EA:00  -76       11        0    0   6  54e. WPA2 CCMP   MGT  SRH                                                                   
+ A0:E0:AF:B2:E8:11  -76       15        0    0  11  54e. WPA2 CCMP   MGT  wlanfh1x                                                              
+ A0:E0:AF:B2:E8:13  -76       13        0    0  11  54e. WPA2 CCMP   PSK  HSHD-SAP                                                              
+ A0:E0:AF:A0:EA:01  -76       15        0    0   6  54e. WPA2 CCMP   MGT  wlanfh1x                                                              
+ A0:E0:AF:A0:EA:03  -76       14        0    0   6  54e. WPA2 CCMP   PSK  HSHD-SAP                                                              
+ A0:E0:AF:A0:EA:02  -76       14        0    0   6  54e. WPA2 CCMP   MGT  eduroam                                                               
+ A0:E0:AF:A0:E9:A2  -76        8        0    0   1  54e. WPA2 CCMP   MGT  eduroam                                                               
+ A0:E0:AF:A0:E9:A1  -76       11        0    0   1  54e. WPA2 CCMP   MGT  wlanfh1x                                                             
+ A0:E0:AF:B2:E8:10  -77       13        0    0  11  54e. WPA2 CCMP   MGT  SRH                                                                  
+ A0:E0:AF:B2:E8:12  -77       14        0    0  11  54e. WPA2 CCMP   MGT  eduroam 
+```
 
 
