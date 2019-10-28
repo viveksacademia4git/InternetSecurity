@@ -259,7 +259,7 @@ Type of CIPHER used for the network.
 
 ## WEP 'to_break_educational'
 
-The WEP with the assigned name `to_break_educational` has BSSID `E8:94:F6:F2:F1:E1` which signifies that the security being used by the network is `WEP 40/128-bit Key(Hex or ASCII`.
+The WEP with the assigned name `to_break_educational` has BSSID `E8:94:F6:F2:F1:E1`. The security being used by the network is `WEP 40/128-bit Key(Hex or ASCII)` (discovered in the network details).
 
 
 
