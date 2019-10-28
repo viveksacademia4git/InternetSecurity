@@ -123,16 +123,10 @@ Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
 ```
 
 
-## Stop the Interface
-
-Stop the interface for `[phy0]wlp2s0 on [phy0]wlp2s0mon`
-
-Command:  
-`sudo ifconfig wlp2s0mon down`
-
-
 ## Install ***Mac Changer***
 
+Install `Mac Changer` before stopping the WIFI interface because the network goes down after stopping the interface
+  
 Command:  
 `sudo apt-get install macchanger`
 
@@ -170,6 +164,14 @@ Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
 ```
 
 
+## Stop the Interface
+
+Stop the interface for `[phy0]wlp2s0 on [phy0]wlp2s0mon`
+
+Command:  
+`sudo ifconfig wlp2s0mon down`
+
+
 ## Use Mac Changer for changing Mac-Address
 
 Command:  
@@ -187,7 +189,7 @@ Permanent MAC: ac:7b:a1:84:eb:d5 (Intel Corporate)
 
 
 
-### Start the Interface
+## Start the Interface
 
 Stop the interface for `[phy0]wlp2s0 on [phy0]wlp2s0mon`
 
@@ -259,10 +261,13 @@ Type of CIPHER used for the network.
 
 ## WEP 'to_break_educational'
 
-The WEP with the assigned name `to_break_educational` has BSSID `E8:94:F6:F2:F1:E1`. The security being used by the network is `WEP 40/128-bit Key(Hex or ASCII)` (discovered in the network details).
+The WEP with the assigned name `to_break_educational` has BSSID `E8:94:F6:F2:F1:E1`. The security being used by the network is `WEP 40/128-bit Key (Hex or ASCII)` (discovered in the network details):  
+![Screenshot](images/WEP-Security-Protocol.png)
 
-
+The WEP network uses the Channel 6, which has a specific reason explain in the [Link:metageek.com](https://www.metageek.com/training/resources/why-channels-1-6-11.html)
 
 ## References
 
 - https://www.juniper.net/documentation/en_US/junos-space-apps/network-director3.5/topics/concept/wireless-ssid-bssid-essid.html
+
+- https://www.metageek.com/training/resources/why-channels-1-6-11.html
