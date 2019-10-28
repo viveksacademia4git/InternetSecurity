@@ -104,3 +104,44 @@ Setting up net-tools (1.60+git20161116.90da8a0-1ubuntu1) ...
 Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
 ```
 
+
+### Install ***Mac Changer***
+
+Command:  
+`sudo apt-get install macchanger`
+
+Output Screenshot:  
+![Screenshot](InstallMacchanger.png)
+
+MacAddress Changer Screenshot: Window Screenshot for Automatic Mac Address Assignment: (Preffered to Select 'No')  
+![Screenshot](MacChanger.png)
+
+
+Output Text:  
+```
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  libllvm7 python-chardet python-cliapp python-markdown python-pygments
+  python-ttystatus python-yaml
+Use 'sudo apt autoremove' to remove them.
+The following NEW packages will be installed:
+  macchanger
+0 upgraded, 1 newly installed, 0 to remove and 10 not upgraded.
+Need to get 190 kB of archives.
+After this operation, 650 kB of additional disk space will be used.
+Get:1 http://de.archive.ubuntu.com/ubuntu bionic/universe amd64 macchanger amd64 1.7.0-5.3build1 [190 kB]
+Fetched 190 kB in 1s (178 kB/s)     
+Preconfiguring packages ...
+Selecting previously unselected package macchanger.
+(Reading database ... 188694 files and directories currently installed.)
+Preparing to unpack .../macchanger_1.7.0-5.3build1_amd64.deb ...
+Unpacking macchanger (1.7.0-5.3build1) ...
+Setting up macchanger (1.7.0-5.3build1) ...
+Processing triggers for install-info (6.5.0.dfsg.1-2) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+```
+
+
+
