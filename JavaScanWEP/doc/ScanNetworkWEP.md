@@ -246,13 +246,13 @@ Output Text:
 
 ## Monitoring Table Header Explanation:
 
-### BSSID:
+***BSSID:***
 "Packets bound for devices within the WLAN need to go to the correct destination. The SSID keeps the packets within the correct WLAN, even when overlapping WLANs are present. However, there are usually multiple access points within each WLAN, and there has to be a way to identify those access points and their associated clients. This identifier is called a basic service set identifier (BSSID) and is included in all wireless packets."[Link:juniper.net](https://www.juniper.net/documentation/en_US/junos-space-apps/network-director3.5/topics/concept/wireless-ssid-bssid-essid.html)  
 
-### ENC
+***ENC:***
 Type of encryption used for the network.
 
-### CIPHER
+***CIPHER:***
 Type of CIPHER used for the network.
 
 
