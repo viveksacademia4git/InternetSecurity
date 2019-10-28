@@ -71,3 +71,36 @@ PHY	Interface	Driver		Chipset
 phy0	wlp2s0		iwlwifi		Intel Corporation Wireless 7260 (rev 73)
 ```
 
+
+### Install ***net-tools***
+
+Command:  
+`sudo apt install net-tools`
+
+Output Screenshot:  
+![Screenshot](InstallNetTools.png)
+
+
+Output Text:  
+```
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  libllvm7 python-chardet python-cliapp python-markdown python-pygments python-ttystatus python-yaml
+Use 'sudo apt autoremove' to remove them.
+The following NEW packages will be installed:
+  net-tools
+0 upgraded, 1 newly installed, 0 to remove and 10 not upgraded.
+Need to get 194 kB of archives.
+After this operation, 803 kB of additional disk space will be used.
+Get:1 http://de.archive.ubuntu.com/ubuntu bionic/main amd64 net-tools amd64 1.60+git20161116.90da8a0-1ubuntu1 [194 kB]
+Fetched 194 kB in 0s (847 kB/s)   
+Selecting previously unselected package net-tools.
+(Reading database ... 188646 files and directories currently installed.)
+Preparing to unpack .../net-tools_1.60+git20161116.90da8a0-1ubuntu1_amd64.deb ...
+Unpacking net-tools (1.60+git20161116.90da8a0-1ubuntu1) ...
+Setting up net-tools (1.60+git20161116.90da8a0-1ubuntu1) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+```
+
