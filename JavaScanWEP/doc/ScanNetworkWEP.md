@@ -45,7 +45,7 @@ Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
 ```
 
 
-## Check trouble causing process 
+## Start Physical Interface for WLAN
 
 Command:  
 `sudo airmon-ng start wlp2s0`
@@ -73,20 +73,6 @@ phy0	wlp2s0		iwlwifi		Intel Corporation Wireless 7260 (rev 73)
 		(mac80211 monitor mode vif enabled for [phy0]wlp2s0 on [phy0]wlp2s0mon)
 		(mac80211 station mode vif disabled for [phy0]wlp2s0)
 
-Found 5 processes that could cause trouble.
-If airodump-ng, aireplay-ng or airtun-ng stops working after
-a short period of time, you may want to run 'airmon-ng check kill'
-
-  PID Name
-  678 avahi-daemon
-  687 avahi-daemon
-  696 NetworkManager
-  718 wpa_supplicant
- 4676 dhclient
-
-PHY	Interface	Driver		Chipset
-
-phy0	wlp2s0		iwlwifi		Intel Corporation Wireless 7260 (rev 73)
 ```
 
 
