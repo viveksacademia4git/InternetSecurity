@@ -391,6 +391,11 @@ Starting PTW attack with 28386 ivs.
 ```
 
 
+Cap File:  
+![Screenshot](images/CapFile.png)
+
+
+
 ## Connect the WEP Network
 
 
