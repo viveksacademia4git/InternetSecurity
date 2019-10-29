@@ -391,6 +391,17 @@ Starting PTW attack with 28386 ivs.
 ```
 
 
+## Connect the WEP Network
+
+
+Connecting the WEP Network  With Cracked Password:  
+![Screenshot](images/ConnectWEPNetworkUsingCrackedPassword.png)
+
+
+Connected to the WEP Network:  
+![Screenshot](images/ConnectedWEPNetworkUsingCrackedPassword.png)
+
+
 
 ## References
 
