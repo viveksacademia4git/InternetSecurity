@@ -1,2 +1,5 @@
 /.gradle/
 /bin/
+*.log
+.classpath
+.project
