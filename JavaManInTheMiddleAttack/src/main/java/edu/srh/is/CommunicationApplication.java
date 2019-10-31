@@ -1,15 +1,10 @@
 package edu.srh.is;
 
-import java.util.Queue;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import edu.srh.is.attacker.AgentSmith;
-import edu.srh.is.constant.LogMarker;
 import edu.srh.is.operation.CommunicationLink;
-import edu.srh.is.operation.Communicator;
-import edu.srh.is.util.Common;
 import edu.srh.is.victim.Morpheus;
 import edu.srh.is.victim.Neo;
 import edu.srh.is.victim.Victim;

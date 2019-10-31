@@ -28,7 +28,9 @@
  4. Now Execute the Unit Test Class > 
 
 
-## Output:
+## Program Execution and Output:
+
+Exeucte >> `edu.srh.is.CommunicationApplicationTest.java` in the test source directory
 
 In the application when the Neo speaks with Morpheus, Agent Smith is listening to their conversation. He silently decrypts the encrypted message from Neo and understand the message. After listening he forwards the request to the Morpheus. Morpheus thinks that nobody has listened to this conversation.
 
