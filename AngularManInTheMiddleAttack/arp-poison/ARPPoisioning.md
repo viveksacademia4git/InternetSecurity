@@ -61,6 +61,17 @@ ac:7b:a1:84:eb:d5 d4:25:8b:d2:8d:4a 0806 42: arp reply 192.168.0.1 is-at ac:7b:a
 ```
 
 
+## Steps to over the ARP Poising
+
+- Do not have a weak security mode for the Network, because it cannot prohibit unauthorized intrusion in the network.
+- Having a weak password for the network security can be comprised if dealt with brute-force attack, or running authentication loop to authenticate with the commonly used words.
+- Use CISCO routers that can help to examine the ARP spoofing.
+- Detection Tools: ARP spoofing can be detected by the usage of the third-party tool like XArp
+- Packet filtering and inspection can detect poisoned packets and catch them before reaching the destination (Or Attacker) [2].
+- VPN can be relied upon to have a secure connections.
+
+
 ## Reference
 
 1. https://unix.stackexchange.com/questions/14056/what-is-kernel-ip-forwarding
+2. https://www.indusface.com/blog/protect-arp-poisoning/
