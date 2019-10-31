@@ -1,10 +1,12 @@
 package edu.srh.is.victim;
 
+import edu.srh.is.operation.Communicator;
+
 /**
  * Super Class for Victims
  * @author Vivek Yadav
  */
-public abstract class Victims {
+public abstract class Victim {
 
 	// Exposed within the package and the child class
 	String victimName;
@@ -14,7 +16,7 @@ public abstract class Victims {
 	 * Super: Victim constructor
 	 * @param victimName {@link String}
 	 */
-	public Victims(String victimName) {
+	public Victim(String victimName) {
 		this.victimName = victimName;
 	}
 
@@ -36,13 +38,15 @@ public abstract class Victims {
 	
 
 	/**
-	 * Define the user to whom to communicate with.
-	 * @param victim {@linkplain <? extends Victims>}
+	 * User Communicator to perform the communication with the user.
+	 * @param communicator {@link Communicator}
 	 */
-	public abstract void communicateWith(Class<? extends Victims> victim);
+	public abstract void sendMessage(Communicator communicator);
 
-	public abstract void sendMessage(String message);
-
-	public abstract String receiveMessage();
+	/**
+	 * User Communicator to perform the communication with the user.
+	 * @param communicator {@link Communicator}
+	 */
+	public abstract String receiveMessage(Communicator communicator);
 
 }
