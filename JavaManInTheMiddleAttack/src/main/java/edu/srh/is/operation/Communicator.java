@@ -8,13 +8,14 @@ public class Communicator {
 		// Assign User
 	}
 
-	public void sendMessage() {
+	public boolean sendMessage(String message) {
 		// TODO Send Message
+		return false;
 	}
 
 	public String receiveMessage() {
 		// TODO Return Message
-		return "";
+		return null;
 	}
 
 	
