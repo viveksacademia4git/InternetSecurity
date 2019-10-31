@@ -58,7 +58,7 @@ URL Explanation:
     * Malicious Script by clicking on the bait button:  
       ![Screenshot](SilentlyListen.png)  
     * Malicious Script  
-      ![Screenshot](FunctionInTheMiddle);
+      ![Screenshot](FunctionInTheMiddle.png);
     * Execution of Legit Code along with Malicious Code  
       ![Screenshot](MaliciousCodeExecution.png)
 
