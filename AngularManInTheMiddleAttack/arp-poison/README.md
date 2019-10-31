@@ -69,8 +69,7 @@ ac:7b:a1:84:eb:d5 d4:25:8b:d2:8d:4a 0806 42: arp reply 192.168.0.1 is-at ac:7b:a
 
 ## After Spoofing
 
-We cannot proceed further, because it would be illegal to go ahead and read some's data, but this is not the end. There are several technique followed by a real attacker to make sense of the packet such:
-- Packet Poisoning: When the packets are dealt with forcefull 
+We cannot proceed further, because it would be illegal to go ahead and read some's data, but this is not the end. There are several technique followed by a real attacker to make sense of the packet and communication.
 
 
 ## Steps to overcome the ARP Poising
