@@ -17,6 +17,15 @@
     * He silently interepts the communication between the Matrix Users
     
 
+## Project Implementation and Execution
+ 1. Clone Git
+    * git clone https://github.com/viveksacademia4git/InternetSecurity/tree/master/JavaManInTheMiddleAttack
+ 2. Add Gradle if not added (Follow step 2 (a) to check this)
+    * (a) Right Click Project > Look for the option > `Gradle`
+    * (b) If Gradle nature if not added: Right Click Project > `Configure` > `Add Gradle Nature`
+    * (c) Now perform the step 2 (a) to view the 
+ 3. Load Dependencies: Right Click Project > `Gradle` > `Refresh Gradle Project`
+
 ## Reference:
 1. The Matrix: Movies. (n.d.). Retrieved from https://www.warnerbros.com/movies/matrix/.
 

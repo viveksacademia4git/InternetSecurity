@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+	<script src="myScript.js" />
+</head>
+<body onload="onloadEvent();" >
+
+<div style="text-align:center">
+  <h1>
+    <div>Victim App Demo</div>
+  </h1>
+  <p>
+    Onload is not executing in the Lite-Server
+    <input onclick="onloadEvent()" value="Execute OnLoad" type="button" />
+  </p>
+  <p id="demo" ></p>
+  <p>
+    Username:
+    <input value="" type="text" id="username" />
+    <br/><br/>
+    Password:
+    <input value="" type="text" id="password" />
+    <br/><br/>
+    <input onclick="myFunction()" value="LogIn" type="button" id="LogIn" />
+  </p>
+</div>
+
+</body>
+</html> 
+

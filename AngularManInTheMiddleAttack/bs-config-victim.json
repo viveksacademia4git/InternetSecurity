@@ -1,0 +1,13 @@
+{
+    "_comment1": "https://github.com/johnpapa/lite-server",
+    "_comment2": "https://www.browsersync.io/docs/options",
+    "port": 4000,
+    "host": "127.0.0.1",
+    "files": ["./lite-server-victim/*.{html,htm,css,js}"],
+    "server": { 
+        "baseDir": "./lite-server-victim",
+        "routes": {
+            "/elai2019client/" : "lite-server-victim/"
+        }
+    }
+}
