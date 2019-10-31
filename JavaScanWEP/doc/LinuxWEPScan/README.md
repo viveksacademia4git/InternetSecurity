@@ -500,6 +500,13 @@ Connected to the WEP Network:
 
 
 
+## Steps to overcome the WEP Networks Scan
+
+- Change the secuity for WEP from ***WEP 40/128-bit Key*** to the higher level.
+- Use a long and strong password with alph-numeric and special character because it difficult to break. 
+
+
+
 ## References
 
 - https://www.juniper.net/documentation/en_US/junos-space-apps/network-director3.5/topics/concept/wireless-ssid-bssid-essid.html

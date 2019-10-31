@@ -1,5 +1,12 @@
 # Man In the Middle (MITM) attach - ARP Poisioning
 
+ARP poisoning is an attack wherein fake ARP reply packets are sent on the network. It can be further categorized into two possible attacks:
+- Man in the middle (MITM)
+- Denial of Service (DOS)
+
+However, we will stick our experiment to MITM only.
+
+
 ## Modify Routing Status
 
 File: /proc/sys/net/ipv4/ip_forward  
@@ -60,8 +67,13 @@ ac:7b:a1:84:eb:d5 d4:25:8b:d2:8d:4a 0806 42: arp reply 192.168.0.1 is-at ac:7b:a
 ac:7b:a1:84:eb:d5 d4:25:8b:d2:8d:4a 0806 42: arp reply 192.168.0.1 is-at ac:7b:a1:84:eb:d5
 ```
 
+## After Spoofing
 
-## Steps to over the ARP Poising
+We cannot proceed further, because it would be illegal to go ahead and read some's data, but this is not the end. There are several technique followed by a real attacker to make sense of the packet such:
+- Packet Poisoning: When the packets are dealt with forcefull 
+
+
+## Steps to overcome the ARP Poising
 
 - Do not have a weak security mode for the Network, because it cannot prohibit unauthorized intrusion in the network.
 - Having a weak password for the network security can be comprised if dealt with brute-force attack, or running authentication loop to authenticate with the commonly used words.
@@ -69,6 +81,7 @@ ac:7b:a1:84:eb:d5 d4:25:8b:d2:8d:4a 0806 42: arp reply 192.168.0.1 is-at ac:7b:a
 - Detection Tools: ARP spoofing can be detected by the usage of the third-party tool like XArp
 - Packet filtering and inspection can detect poisoned packets and catch them before reaching the destination (Or Attacker) [2].
 - VPN can be relied upon to have a secure connections.
+- Updated Browser with updated TLS/SSL.
 
 
 ## Reference
