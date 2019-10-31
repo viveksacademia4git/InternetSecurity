@@ -13,7 +13,7 @@ File: /proc/sys/net/ipv4/ip_forward
 
 It signifies the routing of the packets to the current machine, which means all the packets going the router will also get delivered to the current address as well [1].
 
-Command to modifying the status the routing of the packet
+Command to modifying the status the routing of the packet:
 ```
 // Mode changed to super user
 sudo su
@@ -69,11 +69,10 @@ ac:7b:a1:84:eb:d5 d4:25:8b:d2:8d:4a 0806 42: arp reply 192.168.0.1 is-at ac:7b:a
 
 ## After Spoofing
 
-We cannot proceed further, because it would be illegal to go ahead and read some's data, but this is not the end. There are several technique followed by a real attacker to make sense of the packet such:
-- Packet Poisoning: When the packets are dealt with forcefull 
+We cannot proceed further, because it would be illegal to go ahead and read someone's data, but this is not the end. There are several technique followed by a real attacker to make sense of the packet to take the security breach to the next level.
 
 
-## Steps to overcome the ARP Poising
+## Steps to overcome the ARP Poisoning
 
 - Do not have a weak security mode for the Network, because it cannot prohibit unauthorized intrusion in the network.
 - Having a weak password for the network security can be comprised if dealt with brute-force attack, or running authentication loop to authenticate with the commonly used words.

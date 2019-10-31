@@ -5,9 +5,13 @@ import java.util.Queue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import edu.srh.is.attacker.AgentSmith;
 import edu.srh.is.constant.LogMarker;
+import edu.srh.is.operation.CommunicationLink;
 import edu.srh.is.operation.Communicator;
 import edu.srh.is.util.Common;
+import edu.srh.is.victim.Morpheus;
+import edu.srh.is.victim.Neo;
 import edu.srh.is.victim.Victim;
 
 public class CommunicationApplication {
@@ -15,26 +19,39 @@ public class CommunicationApplication {
 	private static final Logger logger = LoggerFactory.getLogger(CommunicationApplication.class);
 
 
-	public static boolean communicate(Victim victim1, Victim victim2, String... messageQueue) {
-		Communicator communicator = new Communicator(victim1, victim2);
-		for(String message : messageQueue) {
-			String encryptedMessage = victim1.sendMessage(communicator, message);
-			if(Common.nullOrEmpty(encryptedMessage)) {
-				logger.error(LogMarker.COMMUNICATION_MESSAGE, "Unable to send the message");
-				return false;
+	public static boolean communicationMITM(boolean breached, CommunicationLink... communicationLinks) throws Exception {
+
+		if(communicationLinks==null || communicationLinks.length<1) {
+			communicationLinks = new CommunicationLink[] {
+				new CommunicationLink(new Neo(), new Morpheus(), "Test")
+			};
+		}
+
+		for(CommunicationLink communicationLink : communicationLinks) {
+			// Start Communication
+			Victim person1 = communicationLink.getVictim1(); //Input is security parameter.
+			person1.startEncryptedCommunication();
+	
+			// Start Communication With
+			Victim person2 = communicationLink.getVictim2();
+	
+			AgentSmith E = new AgentSmith();
+			E.eavsdrop(person1, person2);
+			System.out.println("\n---------------------------------------------------------------------------------------");
+			System.out.println("---------------------------------------------------------------------------------------\n");
+			System.out.println("EAV Key "+person1.getVictimName()+": " + E.getKeyA());
+			System.out.println(person1.getVictimName()+" key: " + person1.getKey());
+			System.out.println("EAV Key "+person2.getVictimName()+": "  + E.getKeyB());
+			System.out.println(person2.getVictimName()+" key: " + person2.getKey());
+			try {
+				person1.sendMessageToUser(person2, E, communicationLink.getMessage());
 			}
-			else
-				logger.info(LogMarker.COMMUNICATION_MESSAGE, victim2.receiveMessage(communicator, encryptedMessage));
+			catch (Exception e) {
+				e.printStackTrace();
+			}
+
 		}
 		return true;
-	}
-
-
-
-	public static boolean communicationMITM(Victim victim1, Victim victim2, String... messageQueue) {
-		boolean breached = false;
-		// TODO Implement introduce MITM attacker - Agent Smith, breaching the communication
-		return breached;
 	}
 
 }

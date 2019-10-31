@@ -1,6 +1,11 @@
 package edu.srh.is.victim;
 
+import java.io.UnsupportedEncodingException;
+import java.math.BigInteger;
+
+import edu.srh.is.attacker.AgentSmith;
 import edu.srh.is.operation.Communicator;
+import edu.srh.is.util.MessageUtil;
 
 /**
  * Super Class for Victims
@@ -11,6 +16,16 @@ public abstract class Victim {
 	// Exposed within the package and the child class
 	String victimName;
 	boolean communicationFlag = false;
+
+
+	public String name;
+	public Communicator Comm;
+	public BigInteger generator;
+
+	private BigInteger randomElement;
+	public BigInteger modOfGenerator;
+	private BigInteger key;
+	
 
 	/**
 	 * Super: Victim constructor
@@ -28,28 +43,56 @@ public abstract class Victim {
 		return victimName;
 	}
 
-	/**
-	 * Returns victim name
-	 * @return victimName {@link String}
-	 */
-	public boolean getCommunicationFlag() {
-		return communicationFlag;
+
+	public void startEncryptedCommunication() {
+		Comm = new Communicator();
+		generator = Comm.getGenerator();
+
+		randomElement = Comm.getRandomElement(); // randomElement <- Zq
+		modOfGenerator = Comm.powMod(generator, randomElement); // modOfGenerator = generator^randomElement mod p
 	}
-	
 
-	/**
-	 * Send Message.
-	 * @param communicator {@link Communicator}
-	 * @param message {@link String}
-	 * @return encryptedMessage {@link String}
-	 */
-	public abstract String sendMessage(Communicator communicator, String message);
 
-	/**
-	 * Receive Message.
-	 * @param encryptedMessage {@link String}
-	 * @return decryptedMessage {@link String}
-	 */
-	public abstract String receiveMessage(Communicator communicator, String encryptedMessage);
+	public void initiateDecryption(Communicator Comm) {
+		this.Comm = Comm;
+		randomElement = Comm.getRandomElement(); // randomElement <- Zq
+		modOfGenerator = Comm.powMod(Comm.getGenerator(), randomElement); // modOfGenerator = generator ^ randomElement mod p
+	}
+
+
+	public void getFromPerson(BigInteger hB){
+		key = Comm.powMod(hB, randomElement);
+	}
+
+
+	public BigInteger getKey(){
+		return key;
+	}
+
+
+	public void sendMessageToUser(Victim B, String message) throws Exception{
+		System.out.println("\n---- "+this.getVictimName()+" is sending a message ----");
+		System.out.println("Message: " + message);
+		byte[] cipher = MessageUtil.encryptMessage(message, key);
+		System.out.println("Cipher: " + new String(cipher, "UTF-8"));
+		B.receiveMessage(cipher);
+	}
+
+
+	public void sendMessageToUser(Victim B, AgentSmith E, String message) throws Exception{
+		System.out.println("\n---- "+this.getVictimName()+" is sending a message ----");
+		System.out.println("Message: " + message);
+		byte[] cipher = MessageUtil.encryptMessage(message, key);
+		System.out.println("Cipher: " + new String(cipher, "UTF-8"));
+		E.getMessageFromPerson(cipher, B, this);
+	}
+
+
+	public void receiveMessage(byte[] cipherText) throws UnsupportedEncodingException{
+		System.out.println("\n---- "+this.getVictimName()+" Received Message ----");
+		System.out.println("Cipher: " + new String(cipherText, "UTF-8"));
+		String message = MessageUtil.decryptMessage(cipherText, key);
+		System.out.println("Message: " + message);
+	}
 
 }

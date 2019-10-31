@@ -15,18 +15,13 @@ public class Communicator {
 
 	private static final Logger logger = LoggerFactory.getLogger(Communicator.class);
 
-	Victim victim1;
-	Victim victim2;
-
-	BigInteger primeNoCandidate;
-	BigInteger keyCandidate;
+	BigInteger generator;
+	BigInteger modulus;
 
     private static final int KEY_LENGTH = 256;
 
 
-	public Communicator(Victim victim1, Victim victim2) {
-		this.victim1 = victim1;
-		this.victim2 = victim2;
+	public Communicator() {
 		initiateEncryption();
 	}
 
@@ -37,65 +32,42 @@ public class Communicator {
     		Random rnd = new Random();
 
             q = BigInteger.probablePrime(KEY_LENGTH, rnd);
-            primeNoCandidate = (q.multiply(BigInteger.TWO)).add(BigInteger.ONE); // p = 2q+1
+            modulus = (q.multiply(BigInteger.TWO)).add(BigInteger.ONE); // p = 2q+1
 
-            if (!primeNoCandidate.isProbablePrime(40))
+            if (!modulus.isProbablePrime(40))
                 continue;
 
             while (true) {
-            	keyCandidate = MessageUtil.getRandomBigInteger(primeNoCandidate.subtract(BigInteger.ONE));
-                BigInteger exp = (primeNoCandidate.subtract(BigInteger.ONE)).divide(q);
-                if (keyCandidate.modPow(exp, primeNoCandidate).compareTo(BigInteger.ONE) != 0)
+            	generator = MessageUtil.getRandomBigInteger(BigInteger.TWO, modulus.subtract(BigInteger.ONE));
+                BigInteger exp = (modulus.subtract(BigInteger.ONE)).divide(q);
+                if (generator.modPow(exp, modulus).compareTo(BigInteger.ONE) != 0)
                     break;
             }
-
             break;
         }
 	}
 
-	/**
-	 * Send encrypted message
-	 * @param message {@link String}
-	 * @return encryptedMessage {@link String}
-	 */
-	public String sendMessage(String message) {
-		try {
-			// TODO Send Message
-			String encryptedMessage = MessageUtil.encryptMessage(message);
-			if(Common.nullOrEmpty(encryptedMessage)) {
-				logger.error(LogMarker.COMMUNICATION_PROCESS, "Unable to perform the communication encryption process.");
-				return null;
-			}
-			return encryptedMessage;
-		}
-		catch (Exception ex) {
-			String err = Common.append("An error occurred while performing communication encryption process: ",ex.getMessage());
-			logger.error(LogMarker.COMMUNICATION_PROCESS, err);
-			return null;
-		}
-	}
 
-	/**
-	 * Receive Decrypted Message
-	 * @param encryptedMessage {@link String}
-	 * @return decryptedMessage {@link String}
-	 */
-	public String receiveMessage(String encryptedMessage) {
-		try {
-			// TODO Send Message
-			String decryptedMessage = MessageUtil.encryptMessage(encryptedMessage);
-			if(Common.nullOrEmpty(encryptedMessage)) {
-				logger.error(LogMarker.COMMUNICATION_PROCESS, "Unable to perform the communication decryption process.");
-				return null;
-			}
-			return decryptedMessage;
-		}
-		catch (Exception ex) {
-			String err = Common.append("An error occurred while performing communication decryption process: ",ex.getMessage());
-			logger.error(LogMarker.COMMUNICATION_PROCESS, err);
-			return null;
-		}
-	}
+    public BigInteger getRandomElement() {      
+        return generator.modPow(MessageUtil.getRandomBigInteger(BigInteger.ONE, modulus), modulus);
+    }
+
+
+
+    public BigInteger getModulus() {
+        return modulus;
+    }
+
+
+    public BigInteger getGenerator() {
+        return generator;
+    }
+
+
+    public BigInteger powMod(BigInteger base, BigInteger exp){
+    	BigInteger result = base.modPow(exp, this.modulus);
+    	return result;
+    }
 
 	
 }
