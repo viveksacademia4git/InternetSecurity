@@ -12,8 +12,12 @@ public class Communicator {
 
 	private static final Logger logger = LoggerFactory.getLogger(Communicator.class);
 
+	Victim victim1;
+	Victim victim2;
+	
 	public Communicator(Victim victim1, Victim victim2) {
-		// Assign User
+		this.victim1 = victim1;
+		this.victim2 = victim2;
 	}
 
 	/**

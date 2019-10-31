@@ -2,6 +2,7 @@ package edu.srh.is.util;
 
 public class MessageUtil {
 
+
 	/**
 	 * Returns the decryped message
 	 * @param message {@link String}
