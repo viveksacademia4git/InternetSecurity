@@ -10,4 +10,6 @@ public final class LogMarker {
 
 	public static final Marker COMMUNICATION_MESSAGE = MarkerFactory.getMarker("Communication Message");
 
+	public static final Marker COMMUNICATION_PROCESS = MarkerFactory.getMarker("Communication Process");
+
 }

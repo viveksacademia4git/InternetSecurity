@@ -38,18 +38,18 @@ public abstract class Victim {
 	
 
 	/**
-	 * User Communicator to perform the communication with the user.
+	 * Send Message.
 	 * @param communicator {@link Communicator}
 	 * @param message {@link String}
-	 * @return messageStatus {@link Boolean}
+	 * @return encryptedMessage {@link String}
 	 */
-	public abstract boolean sendMessage(Communicator communicator, String message);
+	public abstract String sendMessage(Communicator communicator, String message);
 
 	/**
-	 * User Communicator to perform the communication with the user.
-	 * @param communicator {@link Communicator}
-	 * @return message {@link String}
+	 * Receive Message.
+	 * @param encryptedMessage {@link String}
+	 * @return decryptedMessage {@link String}
 	 */
-	public abstract String receiveMessage(Communicator communicator);
+	public abstract String receiveMessage(Communicator communicator, String encryptedMessage);
 
 }
