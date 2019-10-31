@@ -1,5 +1,8 @@
 package edu.srh.is.operation;
 
+import java.math.BigInteger;
+import java.util.Random;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,10 +17,40 @@ public class Communicator {
 
 	Victim victim1;
 	Victim victim2;
-	
+
+	BigInteger primeNoCandidate;
+	BigInteger keyCandidate;
+
+    private static final int KEY_LENGTH = 256;
+
+
 	public Communicator(Victim victim1, Victim victim2) {
 		this.victim1 = victim1;
 		this.victim2 = victim2;
+		initiateEncryption();
+	}
+
+
+	public void initiateEncryption() {
+        BigInteger q = BigInteger.ZERO;
+        while (true) {
+    		Random rnd = new Random();
+
+            q = BigInteger.probablePrime(KEY_LENGTH, rnd);
+            primeNoCandidate = (q.multiply(BigInteger.TWO)).add(BigInteger.ONE); // p = 2q+1
+
+            if (!primeNoCandidate.isProbablePrime(40))
+                continue;
+
+            while (true) {
+            	keyCandidate = MessageUtil.getRandomBigInteger(primeNoCandidate.subtract(BigInteger.ONE));
+                BigInteger exp = (primeNoCandidate.subtract(BigInteger.ONE)).divide(q);
+                if (keyCandidate.modPow(exp, primeNoCandidate).compareTo(BigInteger.ONE) != 0)
+                    break;
+            }
+
+            break;
+        }
 	}
 
 	/**

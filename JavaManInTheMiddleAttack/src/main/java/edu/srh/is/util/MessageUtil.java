@@ -1,5 +1,8 @@
 package edu.srh.is.util;
 
+import java.math.BigInteger;
+import java.util.Random;
+
 public class MessageUtil {
 
 
@@ -22,4 +25,16 @@ public class MessageUtil {
 		// TODO Decrypt Message and return the decrypted message
 		return encryptedMessage;
 	}
+
+
+	public static BigInteger getRandomBigInteger(BigInteger primeNumber) {
+		Random rand = new Random();
+		BigInteger result;
+		do
+			result = new BigInteger(primeNumber.bitCount(), rand);
+		while(result.compareTo(primeNumber) >= 0 || result.compareTo(BigInteger.TWO) < 0);
+
+		return result;
+	}
+
 }
