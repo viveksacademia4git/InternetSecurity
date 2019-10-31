@@ -10,6 +10,7 @@ public class MessageUtil {
 	}
 
 	public static String receiveMessage(Class<? extends Victim> victim) {
+		// TO Receive Message
 		return "";
 	}
 }

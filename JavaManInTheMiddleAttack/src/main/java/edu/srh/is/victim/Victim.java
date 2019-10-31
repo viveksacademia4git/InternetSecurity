@@ -40,12 +40,15 @@ public abstract class Victim {
 	/**
 	 * User Communicator to perform the communication with the user.
 	 * @param communicator {@link Communicator}
+	 * @param message {@link String}
+	 * @return messageStatus {@link Boolean}
 	 */
-	public abstract void sendMessage(Communicator communicator);
+	public abstract boolean sendMessage(Communicator communicator, String message);
 
 	/**
 	 * User Communicator to perform the communication with the user.
 	 * @param communicator {@link Communicator}
+	 * @return message {@link String}
 	 */
 	public abstract String receiveMessage(Communicator communicator);
 

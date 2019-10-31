@@ -4,7 +4,7 @@ import edu.srh.is.victim.Victim;
 
 public class Communicator {
 
-	public Communicator(Class<? extends Victim> victim1, Class<? extends Victim> victim2) {
+	public Communicator(Victim victim1, Victim victim2) {
 		// Assign User
 	}
 
