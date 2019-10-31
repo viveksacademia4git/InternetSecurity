@@ -252,7 +252,7 @@ Output -
 
     1. The Matrix: Movies. (n.d.). Retrieved from https://www.warnerbros.com/movies/matrix/.
 
-## Git hub link - 
+
 
 ## Man in the middle attack using JavaScript -
 
@@ -321,7 +321,7 @@ URL Explanation:
     * Execution of Legit Code along with Malicious Code  
       ![Screenshot](MaliciousCodeExecution.png)
 
-## Github Link -
+
 
 
 ## Prevention of Man in the middle attack -
