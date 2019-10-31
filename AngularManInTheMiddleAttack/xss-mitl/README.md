@@ -55,8 +55,10 @@ URL Explanation:
     * The login button click functionality is replaced by a function Malicious javascript, which executes the login button click along with sending the secret detail to the other link or url  
     * Loading Script:  
       ![Screenshot](ScriptLoaded.png)  
-    * Malicious Script  
+    * Malicious Script by clicking on the bait button:  
       ![Screenshot](SilentlyListen.png)  
+    * Malicious Script  
+      ![Screenshot](FunctionInTheMiddle.png);
     * Execution of Legit Code along with Malicious Code  
       ![Screenshot](MaliciousCodeExecution.png)
 
