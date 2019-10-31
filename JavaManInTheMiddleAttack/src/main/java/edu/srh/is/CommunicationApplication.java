@@ -44,7 +44,6 @@ public class CommunicationApplication {
 			catch (Exception e) {
 				e.printStackTrace();
 			}
-
 		}
 		return true;
 	}

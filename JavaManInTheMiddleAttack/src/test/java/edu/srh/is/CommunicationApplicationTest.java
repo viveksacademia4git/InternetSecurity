@@ -22,4 +22,5 @@ class CommunicationApplicationTest {
 		assertTrue(CommunicationApplication.communicationMITM(true, communicationLinks));
 	}
 
+
 }

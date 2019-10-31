@@ -3,6 +3,7 @@ package edu.srh.is.operation;
 import edu.srh.is.victim.Victim;
 
 public class CommunicationLink {
+
 	Victim victim1;
 	Victim victim2;
 	String message;
