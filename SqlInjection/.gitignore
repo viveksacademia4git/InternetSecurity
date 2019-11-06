@@ -58,7 +58,7 @@ angular.json
 browserslist
 karma.conf.js
 package.json
-README.md
+README_backup.md
 tsconfig.app.json
 tsconfig.json
 tsconfig.spec.json
