@@ -29,12 +29,12 @@ The result (output of SQL query exection) of the manipulated Query 2, through SQ
 In order to circumvent the check for the correct password we have used the (`--`) comment from SQL, which actually comments all the characters that comes after the SQL comment. So the only condition adhered after adding the comment is, what comes after `WHERE` SQL keyword and before the SQL comment. The SQL Injection conducted for the user authentication manipulates the condition from {***Check for the correct >> username and password***} to {***Check > if the username is correct or if the condition 1=1 is true***}, which will be always true irrespective of providing the correct username or not.
 
 
-## How does the WHERE clause of the SQL statement used for the login look like? (1P)
+## 2. How does the WHERE clause of the SQL statement used for the login look like? (1P)
 
 It looks exactly like ***Query 1*** without SQL Injection, and it looks like ***Query 2*** after SQL Injection
 
 
-## After you successfully logged in: How can you use a SQL-Injection to show all recent transactions of all users? (2P)
+## 3. After you successfully logged in: How can you use a SQL-Injection to show all recent transactions of all users? (2P)
 
 Since we are logged in as an admin user therefore we are able to view all the transaction performed by all the users.
 
