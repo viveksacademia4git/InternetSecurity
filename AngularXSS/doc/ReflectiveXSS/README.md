@@ -43,7 +43,7 @@ function maliciousScript() {
 }
 ```
 
-I wasn't able to inject the below code section within the URL due character encoding limitation.
+I wasn't able to inject the below code section within the URL due to the character encoding limitation.
 ```
 <script>
 function maliciousScript() {
