@@ -5,7 +5,8 @@
 First we will check whether or not SQL Injection is possible. We have used the following credentials to login.
  - Username: ' or 1=1 --
  - Password: 1234  
-<div style="text-align: right"> ...Input 1 </div>
+ 
+**``` .........Input 1 ```**
 
 
 ![Screenshot](img/AltoroMutual_Login_SQLInjection_Credentials.png)
@@ -14,13 +15,13 @@ Lets assume that the query executed on the server is something similar to
 ```
 SELECT * FROM [some_users_table] WHERE username='[input_username]' AND password='[input_password]' ...;
 ```
-<div style="text-align: right"> ...Query 1 </div>
+**``` .........Query 1 ```**
 
 Now after we send credentials to the server, through the login process, the assummed query formed on the server's web application might be:
 ```
 SELECT * FROM [some_users_table] WHERE username='' OR 1=1 -- AND password='[input_password]' ...;
 ```
-<div style="text-align: right"> ...Query 2 </div>
+**``` .........Query 2 ```**
 
 The result (output of SQL query exection) of the manipulated Query 2, through SQL Injection, will return the list (rows) of all the users. From these respective records, one of the record (probabily the first record) is picked up the application's code section, for user authentication, to provide free passage within the application.
 
@@ -51,7 +52,7 @@ WHERE ...[SOME CONDITION]... AND [date] < '2019-11-11 23:59:59'
 ...[MAYBE SOME ORDER BY]...
 ...[MAYBE SOME LIMIT]...
 ```
-<div style="text-align: right"> ...Query 3 </div>
+**``` .........Query 3 ```**
 
 
 Query after SQL Injection the query will look somewhat like this:
@@ -61,7 +62,7 @@ WHERE ...[SOME CONDITION]... AND [date] < '2019-11-11 23:59:59'
 UNION
 SELECT * FROM TRANSACTIONS
 ```
-<div style="text-align: right"> ...Query 4 </div>
+**``` .........Query 4 ```**
 
 The query (Query 4) from the outcome of SQL Injection with `UNION` keyword will fetch all the records without associating any condition, so the purview of result-set (records from table) in general will be equivalent to the `SELECT * FROM TRANSACTIONS` plus extra records fetched using the first half of the union query (Query 3) that comes before `UNION` keyword.
  
