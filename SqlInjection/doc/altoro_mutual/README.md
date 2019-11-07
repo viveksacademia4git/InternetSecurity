@@ -24,20 +24,56 @@ SELECT * FROM [some_users_table] WHERE username='' OR 1=1 -- AND password='[inpu
 
 The result (output of SQL query exection) of the manipulated Query 2, through SQL Injection, will return the list (rows) of all the users. From these respective records, one of the record (probabily the first record) is picked up the application's code section, for user authentication, to provide free passage within the application.
 
-## 1. How can you circumvent the check for a correct password? (1P)
+## 1. How can you circumvent the check for a correct password?
 
 In order to circumvent the check for the correct password we have used the (`--`) comment from SQL, which actually comments all the characters that comes after the SQL comment. So the only condition adhered after adding the comment is, what comes after `WHERE` SQL keyword and before the SQL comment. The SQL Injection conducted for the user authentication manipulates the condition from {***Check for the correct >> username and password***} to {***Check > if the username is correct or if the condition 1=1 is true***}, which will be always true irrespective of providing the correct username or not.
 
+**Login as the other user**
+In order to change the user we can enter the username as `' OR 1=1 ORDER BY 1 DESC --` or `' OR 1=1 ORDER BY 1 ASC --`.
 
-## 2. How does the WHERE clause of the SQL statement used for the login look like? (1P)
+
+## 2. How does the WHERE clause of the SQL statement used for the login look like?
 
 It looks exactly like ***Query 1*** without SQL Injection, and it looks like ***Query 2*** after SQL Injection
 
 
-## 3. After you successfully logged in: How can you use a SQL-Injection to show all recent transactions of all users? (2P)
+## 3. After you successfully logged in: How can you use a SQL-Injection to show all recent transactions of all users?
 
-Since we are logged in as an admin user therefore we are able to view all the transaction performed by all the users.
+We will use make use of the ***POSTMAN*** application to exploit the SQL Injection vulnerability to fetch all the transactions from all the user.
 
-![Screenshot](img/AltoroMutual_Admin_All_Transaction.png)
+In order to show all the transaction we can use make of the `UNION` keyword from SQL. It is responsible for fetching all the records by performing union (as second half of any query) with the same table. We are making union of `TRANSACTIONS` table by having two parts of a query by performing the following SQLInjection:  
+`https://demo.testfire.net/bank/transaction.jsp?endDate=2019-11-11 23:59:59' UNION SELECT * FROM TRANSACTIONS order by accountid; --`
 
-But we will use the SQL Injection to fetch all the recent records.
+Query before SQL Injection the query will look somewhat like this:
+```
+SELECT * FROM TRANSACTION
+WHERE ...[SOME CONDITION]... AND [date] < '2019-11-11 23:59:59'
+...[MAYBE SOME ORDER BY]...
+...[MAYBE SOME LIMIT]...
+```
+<div style="text-align: right"> ...Query 3 </div>
+
+
+Query after SQL Injection the query will look somewhat like this:
+```
+SELECT * FROM TRANSACTION
+WHERE ...[SOME CONDITION]... AND [date] < '2019-11-11 23:59:59'
+UNION
+SELECT * FROM TRANSACTIONS
+```
+<div style="text-align: right"> ...Query 4 </div>
+
+The query (Query 4) from the outcome of SQL Injection with `UNION` keyword will fetch all the records without associating any condition, so the purview of result-set (records from table) in general will be equivalent to the `SELECT * FROM TRANSACTIONS` plus extra records fetched using the first half of the union query (Query 3) that comes before `UNION` keyword.
+ 
+Screenshot:
+![Screenshot](img/SQLInjection_All_Transaction.png)
+
+***Note***: I checked the [GitHub repository of AltoroJ](https://github.com/hclproducts/AltoroJ/tree/AltoroJ-3.2) to get the table name, but in real life the attacker can only make guess of the table name (in this 'TRANSACTIONS') which can known after performing the few unsuccessful attempts. I would also like to highlight the fact that I was unable to login after creating a user:  
+![Screenshot](img/SQLInjection_User_Not_Created.png)  
+It is also possible that the user is not getting created by the application in the database.
+
+
+## 4. Is the vulnerability susceptible to normal SQL-Injections or to blind SQL-Injections? Justify your answer and state the difference between the two.
+
+It is type of SQL Injection vulnerability that we are trying to leverage on the web application is ***blind SQL Injection***, since the error message is very precise with no information what so ever revealed in the error message about the web application or the schema of the database.
+
