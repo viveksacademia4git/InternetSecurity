@@ -1,5 +1,10 @@
 # Measure to Overcome the XSS
 
+In order to Overcome the XSS following checks can adhered for the safety.
+
+## Check Incoming Request Source
+
+The web applications specially the login (login page and authentication) must always verify for the incoming http request, for e.g. URL check. If there any such outlier request source initiater discovered by the web-server, there can be alert mechanism placed to notify the authentic user of any such event (like Google has such kind of mechanism).
 
 ## Parameter Check
 
