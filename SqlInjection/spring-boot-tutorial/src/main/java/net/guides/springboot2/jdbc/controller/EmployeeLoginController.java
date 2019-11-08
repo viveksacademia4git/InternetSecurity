@@ -43,17 +43,12 @@ public class EmployeeLoginController {
 		// Removing the Vulnerable Code
 		boolean isVulnerable = false;
 
-		// Vulnerable code
+		// Vulnerable Function
 		if(isVulnerable)
 			return findByIdVulnerable(uId);
 
-		// Non Vulnerable code
-		else
-			try { return findByIdNonVulnerable(Integer.parseInt(uId)); }
-			catch(Exception ex) {
-				logger.error(ex.getMessage());
-				return new ArrayList<>();
-			}
+		// Non Vulnerable Function
+		return findByIdNonVulnerable(uId);
 	}
 
 
@@ -69,9 +64,16 @@ public class EmployeeLoginController {
 
 
 
-    public List <Employee> findByIdNonVulnerable(long id) {
+    public List <Employee> findByIdNonVulnerable(String id) {
+    	int uid;
+		try { uid = Integer.parseInt(id); }
+		catch(Exception ex) {
+			logger.error(ex.getMessage());
+			return new ArrayList<>();
+		}
+
     	String query = "select * from employees where id=? ";
-    	Object[] conditions = { id };
+    	Object[] conditions = { uid };
     	RowMapper<Employee> rowMapper = new BeanPropertyRowMapper<> (Employee.class);
     	return jdbcTemplate.query(query, conditions, rowMapper);
     }
