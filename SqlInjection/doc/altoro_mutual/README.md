@@ -87,5 +87,5 @@ It is also possible that the user is not getting created by the application in t
 
 It is type of SQL Injection vulnerability that we are trying to leverage on the web application is ***blind SQL Injection***, since the error message is very precise with no information what so ever revealed in the error message about the web application or the schema of the database.
 
-Even the error messages on the server's end, displayed on the front end, conceal the business logic and database schema, but it is disclosing the date-time format.  
+Even the error messages on the server's end, displayed on the front end, conceals the business logic and database schema, but it is disclosing the date-time format (which might not be that usefull).  
 ![Screenshot](img/SQLInjection_Blind_Error.png)
