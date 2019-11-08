@@ -40,7 +40,8 @@ public class EmployeeLoginController {
 	@RequestMapping(path="/employee", method=RequestMethod.POST)
 	public List<Employee> getProductsByName(@RequestParam String uId) {
 
-		boolean isVulnerable = true;
+		// Removing the Vulnerable Code
+		boolean isVulnerable = false;
 
 		// Vulnerable code
 		if(isVulnerable)
