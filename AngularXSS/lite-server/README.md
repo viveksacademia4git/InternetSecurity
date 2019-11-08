@@ -79,7 +79,7 @@ Screenshot browser:
 
 ## Open the Login page of the 'Altoro Mutual'
 
-We have created the fake login page that looks exactly like the bank's login website. Upon clicking the link on the top with text `Login to Altoro Mutual`, a popup page will open wit the login screen of the ***Altoro Mutual***:  
+We have created the fake login page that looks exactly like the bank's login website. Upon clicking the link on the top with text `Login to Altoro Mutual`, a popup page will open with the login screen of the ***Altoro Mutual***:  
 
 ![Screenshot](img/XSS_NLU_Login_Page.png)
 
