@@ -1,0 +1,18 @@
+{
+    "manifest_version": 2,
+   
+    "name": "Hacking Education Testing",
+    "version": "0.1.0",
+    "description": "Hacking Education Testing",
+   
+    "content_scripts": [{
+        "js": [
+          "content.js" , "jquery.min.js"
+        ],
+        "matches": ["https://demo.testfire.net/login.jsp"]
+    }],
+
+    "browser_action": {
+        "default_icon": "hacker.png"
+    }
+}

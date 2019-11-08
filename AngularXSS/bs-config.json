@@ -3,11 +3,11 @@
     "_comment2": "https://www.browsersync.io/docs/options",
     "port": 3000,
     "host": "127.0.0.1",
-    "files": ["./lite-server-victim/*.{html,htm,css,js}"],
+    "files": ["./lite-server-phishing/*.{html,htm,css,js}"],
     "server": { 
-        "baseDir": "./lite-server",
+        "baseDir": "./lite-server-phishing",
         "routes": {
-            "/elai2019client/" : "lite-server/"
+            "/elai2019client/" : "lite-server-phishing/"
         }
     }
 }
