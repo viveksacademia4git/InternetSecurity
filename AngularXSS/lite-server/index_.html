@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="src/js/jquery.min.js" ></script>
+  <script src="src/js/jqery.modal.min.js"></script>
+  <link rel="stylesheet" href="src/css/jquery.modal.min.css" />
+  <script>
+    
+    /**
+     * Redirect to respective page with following parameters.
+     * Do not use this function without intimation from the author (Vivek Yadav)
+     * This code has been written before 2006
+     * @param {type} to
+     * @param {type} p
+     * @returns {undefined}
+     */
+    function postwith (to,p) {
+      var myForm = document.createElement('form');
+      myForm.method='post' ;
+      myForm.action = to ;
+      for (var k in p) {
+        var myInput = document.createElement('input') ;
+        myInput.setAttribute('name', k) ;
+        myInput.setAttribute('value', p[k]);
+        myForm.appendChild(myInput) ;
+      }
+      document.body.appendChild(myForm) ;
+      myForm.submit();
+      document.body.removeChild(myForm) ;
+    }
+    
+    function maliciousFunction(username, password) {
+      // Start > Code to send the credentials
+      
+      // End > Code to send the credentials
+      postwith("https://demo.testfire.net/doLogin",{
+        uid : username,
+        passw: password
+      });
+    }
+
+  </script>
+  <style>
+    .modal {
+      width: 99%;
+      max-width: 99%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <p><a href="#ex1" rel="modal:open" >Open Modal</a></p>
+
+  <div id="ex1" class="modal" style="height:500px" >
+      <iframe src='AltoroMutual.html' name='iframe_a'  style='width:100%; height:450px' ></iframe>
+  </div>
+</body>
+</html> 
+
