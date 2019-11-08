@@ -167,6 +167,10 @@ The `index.html` contains the malicious that get execution from the popup window
     }
 ```
 
+After after entering the correct login credentials from bank and clicking on the login button the user is redirected to the welcome page of the bank's web application. 
+
+![Screenshot](img/XSS_NLU_Login_Success.png)
+
 
 The malicious section mentioned below can have code to silently send the user's credential to an endpoint on the malicious server accepting the credentials. 
 ```
