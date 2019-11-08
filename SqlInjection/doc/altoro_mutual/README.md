@@ -17,6 +17,8 @@ SELECT * FROM [some_users_table] WHERE username='[input_username]' AND password=
 ```
 **``` .........Query 1 ```**
 
+After executing the above steps, we conclude that the SQL Injection vulnerability can be exploited on the web application. 
+
 Now after we send credentials to the server, through the login process, the assummed query formed on the server's web application might be:
 ```
 SELECT * FROM [some_users_table] WHERE username='' OR 1=1 -- AND password='[input_password]' ...;
