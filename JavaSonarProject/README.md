@@ -64,12 +64,22 @@ Using ***[pom.xml](pom.xml)***, install SonarQube Dependency and configure your 
 Please make sure that the SonarQube Scanner is up and running (like screenshot from **Install Sonar** section) before executing the command for SonarQube to perform project scanning.
 
 
+Check whether project has `sonar` goal by executing the following command:
+```
+mvn clean verify sonar:sonar
+```
+
+Use the below command to make sure to clean everything, and then perform the installation (performs other task as well) of dependencies: 
+```
+mvn clean install
+```
+
 Go to the project location and execute the following command from the terminal:
 ```
 mvn sonar:sonar
 ```
 
-Output of the program:
+Output of the program `mvn sonar:sonar` :
 ```
 WARNING: An illegal reflective access operation has occurred
 WARNING: Illegal reflective access by com.google.inject.internal.cglib.core.$ReflectUtils$1 (file:/usr/share/maven/lib/guice.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)
