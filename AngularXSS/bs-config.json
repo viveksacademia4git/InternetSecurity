@@ -7,7 +7,7 @@
     "server": { 
         "baseDir": "./lite-server-phishing",
         "routes": {
-            "/elai2019client/" : "lite-server-phishing/"
+            "/AngularXSS/" : "lite-server-phishing/"
         }
     }
 }
